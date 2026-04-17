@@ -1,0 +1,10 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "env": {
+    "ANTHROPIC_API_KEY": "@anthropic_api_key",
+    "MONGODB_URI": "@mongodb_uri",
+    "MONGODB_DB_NAME": "@mongodb_db_name",
+    "ADMIN_SECRET": "@admin_secret"
+  }
+}
