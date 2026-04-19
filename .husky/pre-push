@@ -1,0 +1,2 @@
+cd nippou/frontend && npm test -- --passWithNoTests
+cd ../backend && npm test -- --passWithNoTests

@@ -1,0 +1,8 @@
+ai-chat/
+node_modules/
+nippou/frontend/node_modules/
+nippou/backend/node_modules/
+nippou/frontend/.next/
+nippou/backend/dist/
+nippou/frontend/coverage/
+nippou/backend/coverage/

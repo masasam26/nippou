@@ -1,0 +1,4 @@
+{
+  "nippou/frontend/**/*.{ts,tsx}": "bash -c 'cd nippou/frontend && npm run lint:fix && npm run format'",
+  "nippou/backend/**/*.ts": "bash -c 'cd nippou/backend && npm run lint:fix && npm run format'"
+}
