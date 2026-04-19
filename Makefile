@@ -1,4 +1,5 @@
-.PHONY: install lint lint-fix format format-check type-check test ci deploy
+.PHONY: install lint lint-fix format format-check type-check test ci deploy \
+        db-migrate db-migrate-deploy db-generate db-seed db-studio db-reset
 
 install:
 	cd frontend && npm install
@@ -33,3 +34,21 @@ ci: lint format-check type-check test
 deploy:
 	npx vercel --cwd frontend --prod --yes \
 		--token=$(VERCEL_TOKEN)
+
+db-migrate:
+	cd backend && npm run db:migrate
+
+db-migrate-deploy:
+	cd backend && npm run db:migrate:deploy
+
+db-generate:
+	cd backend && npm run db:generate
+
+db-seed:
+	cd backend && npm run db:seed
+
+db-studio:
+	cd backend && npm run db:studio
+
+db-reset:
+	cd backend && npm run db:reset
