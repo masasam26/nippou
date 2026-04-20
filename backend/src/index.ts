@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { errorHandler } from "./middlewares/errorHandler";
 import authRouter from "./routes/auth";
+import dailyReportsRouter from "./routes/dailyReports";
 
 const app = express();
 const PORT = process.env.PORT ?? 3001;
@@ -24,6 +25,7 @@ app.get("/health", (_req, res) => {
 });
 
 app.use("/v1/auth", authRouter);
+app.use("/v1/daily-reports", dailyReportsRouter);
 
 app.use(errorHandler);
 
