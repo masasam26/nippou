@@ -36,7 +36,7 @@ router.get(
         message: e.message,
       }));
       return next(
-        new AppError(400, "VALIDATION_ERROR", "クエリパラメータが正しくありません", details)
+        new AppError(400, "VALIDATION_ERROR", "クエリパラメータが正しくありません", details),
       );
     }
 
@@ -104,7 +104,7 @@ router.get(
     } catch (err) {
       next(err);
     }
-  }
+  },
 );
 
 const visitRecordSchema = z.object({
@@ -144,9 +144,7 @@ router.post(
         field: e.path.join("."),
         message: e.message,
       }));
-      return next(
-        new AppError(400, "VALIDATION_ERROR", "入力値が正しくありません", details)
-      );
+      return next(new AppError(400, "VALIDATION_ERROR", "入力値が正しくありません", details));
     }
 
     const { report_date, visit_records, problem, plan, status } = parsed.data;
@@ -169,7 +167,7 @@ router.post(
         return next(
           new AppError(400, "VALIDATION_ERROR", "指定された顧客IDが存在しません", [
             { field: "customer_id", message: `customer_id: ${missingId} は存在しません` },
-          ])
+          ]),
         );
       }
     }
@@ -214,9 +212,7 @@ router.post(
         "code" in err &&
         (err as { code: string }).code === "P2002"
       ) {
-        return next(
-          new AppError(409, "CONFLICT", "指定した日付の日報は既に存在します")
-        );
+        return next(new AppError(409, "CONFLICT", "指定した日付の日報は既に存在します"));
       }
       return next(err);
     }
@@ -248,7 +244,7 @@ router.post(
         updated_at: report.updatedAt.toISOString(),
       },
     });
-  }
+  },
 );
 
 export default router;
